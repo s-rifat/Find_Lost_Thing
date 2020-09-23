@@ -31,8 +31,8 @@ namespace FindLostThings.Models
         public Nullable<System.DateTime> date { get; set; }
         public string description { get; set; }
 
-        [Required]
-        public string userType { get; set; }
+       
+        public string itemType { get; set; }
         public int userId { get; set; }
 
        

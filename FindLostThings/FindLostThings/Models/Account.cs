@@ -26,7 +26,6 @@ namespace FindLostThings.Models
         public string userName { get; set; }
         public string password { get; set; }
 
-
         [NotMapped] // Does not effect with my database
         [Compare("password")]
         public string confirmPassword { get; set; }

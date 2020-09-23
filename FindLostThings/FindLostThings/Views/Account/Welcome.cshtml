@@ -1,4 +1,4 @@
-﻿
+﻿@model FindLostThings.Models.Account
 @{
     ViewBag.Title = "Welcome";
 }
@@ -6,8 +6,14 @@
 <h2>Welcome</h2>
 
 <ul>
-    <li>Coffee</li>
-    <li>Tea</li>
-    <li>Milk</li>
+
+    <li>@Html.ActionLink("View Profile", "Index", "Account")</li>
+
+    <li>@Html.ActionLink("Report Lost Item", "Create", "Product", new { id = 1 }, null)</li>
+    <li>@Html.ActionLink("Report Found Item", "Create", "Product", new { id = 2 }, null)</li>
+
+    <li>@Html.ActionLink("Show My History", "Index", "Product")</li>
+
+
 </ul>
 

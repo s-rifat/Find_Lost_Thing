@@ -21,9 +21,12 @@ namespace FindLostThings.Controllers
 
         public ActionResult Index()
         {
+       
+
+           
+            return View(db.Products.SqlQuery("SELECT * FROM Product INNER JOIN Account ON Product.userId = Account.userId where Account.userName = @userName",
+            new SqlParameter("@userName", User.Identity.Name)).ToList());
             
-            return View(db.Products.SqlQuery("SELECT * FROM Product INNER JOIN Account ON Product.userId = Account.userId where Account.userName = @userName", 
-                new SqlParameter("@userName", User.Identity.Name)).ToList());
         }
 
         // GET: Product/Details/5
@@ -42,8 +45,12 @@ namespace FindLostThings.Controllers
         }
 
         // GET: Product/Create
-        public ActionResult Create()
-        {
+        public ActionResult Create(int id)
+
+        {   if (id == 1)
+                Common.Common.bol = true;
+            else if(id==2)
+                Common.Common.bol = false;
             return View();
         }
 
@@ -52,7 +59,7 @@ namespace FindLostThings.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "productId,productName,manufacturer,model,color,postalCode,date,description,userType")] Product product)
+        public ActionResult Create([Bind(Include = "productId,productName,manufacturer,model,color,postalCode,date,description")] Product product)
         {
 
             Account user = db.Accounts
@@ -61,6 +68,22 @@ namespace FindLostThings.Controllers
 
 
             product.userId = user.userId;
+            if (string.IsNullOrEmpty(product.model))
+                product.model = "N/A";
+
+            if (string.IsNullOrEmpty(product.manufacturer))
+                product.manufacturer = "N/A";
+
+            if (string.IsNullOrEmpty(product.description))
+                product.description= "N/A";
+
+            if (Common.Common.bol)
+                product.itemType = Common.Common.LOST;
+            else
+                product.itemType = Common.Common.FOUND;
+
+
+
 
             if (ModelState.IsValid)
             {
@@ -72,7 +95,7 @@ namespace FindLostThings.Controllers
             return View(product);
         }
 
-        // GET: Product/Edit/5
+     /*   // GET: Product/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -102,7 +125,7 @@ namespace FindLostThings.Controllers
                 return RedirectToAction("Index");
             }
             return View(product);
-        }
+        }*/
 
         // GET: Product/Delete/5
         public ActionResult Delete(int? id)

@@ -21,7 +21,7 @@
     <Property Name="postalCode" Type="int" Nullable="false" />
     <Property Name="date" Type="datetime" />
     <Property Name="description" Type="text" />
-    <Property Name="userType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="itemType" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="userId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Product_Account">

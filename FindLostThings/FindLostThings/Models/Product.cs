@@ -21,9 +21,9 @@ namespace FindLostThings.Models
         public string color { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public string description { get; set; }
-        public string userType { get; set; }
         public int userId { get; set; }
         public int postalCode { get; set; }
+        public string itemType { get; set; }
     
         public virtual Account Account { get; set; }
     }

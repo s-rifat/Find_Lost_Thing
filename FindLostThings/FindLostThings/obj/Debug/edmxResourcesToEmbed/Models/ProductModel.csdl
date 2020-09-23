@@ -11,10 +11,10 @@
     <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="date" Type="DateTime" Precision="3" />
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="userType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="userId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Account" Relationship="Models.FK_Product_Account" FromRole="Product" ToRole="Account" />
     <Property Name="postalCode" Type="Int32" Nullable="false" />
+    <Property Name="itemType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="ProductContext" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Products" EntityType="Self.Product" />

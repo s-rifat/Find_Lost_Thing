@@ -5,10 +5,10 @@
 }
 
 <h2>Index</h2>
-
+@*
 <p>
     @Html.ActionLink("Post Information", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr class="bg-primary">
         <th>
@@ -33,11 +33,11 @@
             @Html.DisplayNameFor(model => model.description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.userType)
+            @Html.DisplayNameFor(model => model.itemType)
         </th>
-        <th>
+       @*<th>
             @Html.DisplayNameFor(model => model.userId)
-        </th>
+        </th>*@ 
         <th></th>
     </tr>
 
@@ -66,13 +66,13 @@
                 @Html.DisplayFor(modelItem => item.description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.userType)
+                @Html.DisplayFor(modelItem => item.itemType)
             </td>
-            <td>
+           @* <td>
                 @Html.DisplayFor(modelItem => item.userId)
-            </td>
+            </td>*@
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |
+             @*   @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |*@
                 @Html.ActionLink("Details", "Details", new { id = item.productId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.productId })
             </td>
@@ -80,3 +80,7 @@
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back", "Welcome", "Account")
+</div>
