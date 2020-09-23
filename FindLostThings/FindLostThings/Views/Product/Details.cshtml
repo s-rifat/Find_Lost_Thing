@@ -1,90 +1,100 @@
-﻿@model FindLostThings.Models.Product
+﻿<!-- replace all-->
+
+@model FindLostThings.Models.Product
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.productName)
-        </dt>
+<div class="card">
 
-        <dd>
-            @Html.DisplayFor(model => model.productName)
-        </dd>
+    <div class="card-header">
+        <h2>Product Details</h2>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.manufacturer)
-        </dt>
+    <div class="card-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.manufacturer)
-        </dd>
+        <div class="row">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.model)
-        </dt>
+            <!-- user info-->
+            <div class="col-sm-4 border-primary">
+                <div class="card-header bg-secondary text-white"> <h4> User Info </h4> </div>
+                <div class="card-body">
+                    <table class="table">
 
-        <dd>
-            @Html.DisplayFor(model => model.model)
-        </dd>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.userId)</th>
+                            <td style="background-color:golden;">@Html.DisplayFor(modelItem => Model.userId)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.itemType)</th>
+                            <td style="background-color:golden;">@Html.DisplayFor(modelItem => Model.itemType)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.postalCode)</th>
+                            <td style="background-color:golden;">@Html.DisplayFor(modelItem => Model.postalCode)</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.color)
-        </dt>
+                    </table>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.color)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.postalCode)
-        </dt>
+            <!-- Product info-->
+            <div class="col-sm-4 border-primary">
+                <div class="card-header bg-secondary text-white"> <h4> Product Info </h4> </div>
+                <div class="card-body">
+                    <table class="table">
 
-        <dd>
-            @Html.DisplayFor(model => model.postalCode)
-        </dd>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.productName)</th>
+                            <td>@Html.DisplayFor(modelItem => Model.productName)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.manufacturer)</th>
+                            <td>@Html.DisplayFor(modelItem => Model.manufacturer)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.model)</th>
+                            <td>@Html.DisplayFor(modelItem => Model.model)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.color)</th>
+                            <td>@Html.DisplayFor(modelItem => Model.color)</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.date)
-        </dt>
+                    </table>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.date)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
+            <!-- details -->
+            <div class="col-sm-4 border-primary">
+                <div class="card-header bg-secondary text-white"> <h4> Product Details </h4> </div>
+                <div class="card-body">
+                    <table class="table">
 
-        <dd>
-            @Html.DisplayFor(model => model.description)
-        </dd>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.date)</th>
+                            <td>@Html.DisplayFor(modelItem => Model.date)</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-info">@Html.DisplayNameFor(model => Model.description)</th>
+                            <td>@Html.DisplayFor(modelItem => Model.description)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.itemType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.itemType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.userId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.userId)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 </div>
-<p>
-   @*@Html.ActionLink("Edit", "Edit", new { id = Model.productId }) |*@
+
+
+<div class="container">
+    <p class="p-2"></p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.productId }) ||
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
+
