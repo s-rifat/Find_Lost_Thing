@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{C29C45BA-25B0-4CE2-9B54-CC4C444DF2CF}|">
+  <MonoDevelop.Ide.ItemProperties.FindLostThings PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FindLostThings/Views/Shared/_Layout.cshtml">
+    <Files>
+      <File FileName="FindLostThings/Views/Shared/_Layout.cshtml" Line="18" Column="1" />
+      <File FileName="FindLostThings/Views/Home/Index.cshtml" Line="56" Column="1" />
+      <File FileName="FindLostThings/Views/Home/Contact.cshtml" Line="35" Column="7" />
+      <File FileName="FindLostThings/Views/Home/About.cshtml" Line="42" Column="31" />
+      <File FileName="FindLostThings/Views/Account/Details.cshtml" Line="12" Column="31" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FindLostThings" expanded="True">
+            <Node name="FindLostThings" expanded="True">
+              <Node name="App_Start" expanded="True" />
+              <Node name="Content" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Product" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

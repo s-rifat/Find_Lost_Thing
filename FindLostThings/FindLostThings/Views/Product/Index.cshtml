@@ -1,0 +1,82 @@
+﻿@model IEnumerable<FindLostThings.Models.Product>
+
+@{
+    ViewBag.Title = "My Lost & Found Items";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Post Information", "Create")
+</p>
+<table class="table">
+    <tr class="bg-primary">
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.manufacturer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="table-dark">
+            <td>
+                @Html.DisplayFor(modelItem => item.productName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.productId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.productId })
+            </td>
+        </tr>
+    }
+
+</table>

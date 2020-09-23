@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="ProductContext">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Models.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="Models.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
