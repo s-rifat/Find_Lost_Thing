@@ -17,7 +17,7 @@
 
     <div class="list-group">
 
-        <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("View Profile", "Index", "Account") </p>
+        <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("View Profile", "Index", "Account",new { id = Model.userId }, null) </p>
         <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("Report Lost Item", "Create", "Product", new { id = 1 }, null)  </p>
         <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("Report Found Item", "Create", "Product", new { id = 2 }, null)</p>
         <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("Show My History", "Index", "Product") </p>
