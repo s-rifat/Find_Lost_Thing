@@ -27,5 +27,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Scores">
+      <EntityTypeMapping TypeName="Models.Score">
+        <MappingFragment StoreEntitySet="Score">
+          <ScalarProperty Name="foundUserName" ColumnName="foundUserName" />
+          <ScalarProperty Name="lostUserName" ColumnName="lostUserName" />
+          <ScalarProperty Name="scoreDescription" ColumnName="scoreDescription" />
+          <ScalarProperty Name="scoreModel" ColumnName="scoreModel" />
+          <ScalarProperty Name="scoreManufacturer" ColumnName="scoreManufacturer" />
+          <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+          <ScalarProperty Name="foundItemId" ColumnName="foundItemId" />
+          <ScalarProperty Name="lostItemId" ColumnName="lostItemId" />
+          <ScalarProperty Name="scoreId" ColumnName="scoreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -27,5 +27,6 @@ namespace FindLostThings.Models
     
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Score> Scores { get; set; }
     }
 }

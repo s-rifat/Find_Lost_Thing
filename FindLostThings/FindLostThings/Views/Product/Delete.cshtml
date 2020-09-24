@@ -1,9 +1,11 @@
-﻿@model FindLostThings.Models.Product
+﻿<!-- Full Code Replace || Design Complete -->
+
+@model FindLostThings.Models.Product
 
 @{
     ViewBag.Title = "Delete";
 }
-<!-- from 6-86 replace code -->
+
 <!-- alert dialog -->
 <div class="alert alert-dismissible alert-danger">
     <!-- alert-danger -->
@@ -23,96 +25,81 @@
 
         <div class="row">
 
-            <!-- user info-->
-            <div class="card border-danger">
-                <div class="card-header"> <h4> User Info </h4> </div>
-                <div class="card-body">
-                    <table class="table">
 
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.userId)</th>
-                            <td style="background-color:golden;">@Html.DisplayFor(modelItem => Model.userId)</td>
-                        </tr>
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.itemType)</th>
-                            <td style="background-color:golden;">@Html.DisplayFor(modelItem => Model.itemType)</td>
-                        </tr>
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.postalCode)</th>
-                            <td style="background-color:golden;">@Html.DisplayFor(modelItem => Model.postalCode)</td>
-                        </tr>
 
-                    </table>
+
+            <div class="col-md-9 text-center">
+                <div class="row card border-danger">
+
+                    <div class="card-body overflow-x:auto">
+                        <table class="table">
+
+                            <tr>
+                                <th class="bg-primary">@Html.DisplayNameFor(model => Model.productName)</th>
+                                <td>@Html.DisplayFor(modelItem => Model.productName)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-primary">@Html.DisplayNameFor(model => Model.manufacturer)</th>
+                                <td>@Html.DisplayFor(modelItem => Model.manufacturer)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-primary">@Html.DisplayNameFor(model => Model.model)</th>
+                                <td>@Html.DisplayFor(modelItem => Model.model)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-primary">@Html.DisplayNameFor(model => Model.color)</th>
+                                <td>@Html.DisplayFor(modelItem => Model.color)</td>
+                            </tr>
+
+
+                            <tr>
+                                <th class="bg-primary">@Html.DisplayNameFor(model => Model.date)</th>
+                                <td>@Html.DisplayFor(modelItem => Model.date)</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-primary">@Html.DisplayNameFor(model => Model.description)</th>
+                                <td>@Html.DisplayFor(modelItem => Model.description)</td>
+                            </tr>
+                        </table>
+                    </div>
+
                 </div>
+
             </div>
 
 
-            <!-- Product info-->
-            <div class="card border-danger">
-                <div class="card-header"> <h4> Product Info </h4> </div>
-                <div class="card-body">
-                    <table class="table">
+            <!-- GRID LINE SECTION-->
 
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.productName)</th>
-                            <td>@Html.DisplayFor(modelItem => Model.productName)</td>
-                        </tr>
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.manufacturer)</th>
-                            <td>@Html.DisplayFor(modelItem => Model.manufacturer)</td>
-                        </tr>
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.model)</th>
-                            <td>@Html.DisplayFor(modelItem => Model.model)</td>
-                        </tr>
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.color)</th>
-                            <td>@Html.DisplayFor(modelItem => Model.color)</td>
-                        </tr>
+            <div class="col-md-3 text-center">
+                <div class="row card">
 
-                    </table>
-                </div>
-            </div>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
+                        <div class="card-body overflow-x:auto">
+                            <table class="table">
+                                <tr>
+                                    <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
 
-            <!-- details -->
-            <div class="card border-danger">
-                <div class="card-header"> <h4> User Info </h4> </div>
-                <div class="card-body">
-                    <table class="table">
+                                </tr>
 
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.date)</th>
-                            <td>@Html.DisplayFor(modelItem => Model.date)</td>
-                        </tr>
-                        <tr>
-                            <th class="bg-primary">@Html.DisplayNameFor(model => Model.description)</th>
-                            <td>@Html.DisplayFor(modelItem => Model.description)</td>
-                        </tr>
-                    </table>
+                                <p class="p-2"></p>
+
+                                <tr>
+                                    @Html.ActionLink("Back to List", "Index")
+
+                                </tr>
+
+                            </table>
+                        </div>
+                    }
+
                 </div>
             </div>
 
         </div>
 
-
     </div>
 
 </div>
-
-
-
-
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="container">
-        <p class="p-2"></p>
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-}
-

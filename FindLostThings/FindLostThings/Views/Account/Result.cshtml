@@ -1,0 +1,25 @@
+﻿@model FindLostThings.Models.Account
+
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+
+<div>
+    <h4>Found a contact!</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneNumber)
+        </dd>
+
+    </dl>
+</div>
+

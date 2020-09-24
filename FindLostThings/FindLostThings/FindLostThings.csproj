@@ -157,6 +157,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProductModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Score.cs">
+      <DependentUpon>ProductModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -375,6 +378,8 @@
     <None Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Views\Account\Welcome.cshtml" />
+    <Content Include="Views\Account\Result.cshtml" />
+    <Content Include="Views\Account\Sorry.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

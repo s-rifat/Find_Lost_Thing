@@ -29,6 +29,20 @@
           <Property Name="itemType" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="userId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="scoreId" />
+          </Key>
+          <Property Name="scoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lostItemId" Type="int" Nullable="false" />
+          <Property Name="foundItemId" Type="int" Nullable="false" />
+          <Property Name="isVerified" Type="int" Nullable="false" />
+          <Property Name="scoreManufacturer" Type="int" Nullable="false" />
+          <Property Name="scoreModel" Type="int" Nullable="false" />
+          <Property Name="scoreDescription" Type="int" Nullable="false" />
+          <Property Name="lostUserName" Type="varchar" MaxLength="50" />
+          <Property Name="foundUserName" Type="varchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK_Product_Account">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -44,6 +58,7 @@
         <EntityContainer Name="ModelsStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Score" EntityType="Self.Score" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Product_Account" Association="Self.FK_Product_Account">
             <End Role="Account" EntitySet="Account" />
             <End Role="Product" EntitySet="Product" />
@@ -76,6 +91,7 @@
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
+          <EntitySet Name="Scores" EntityType="Models.Score" />
         </EntityContainer>
         <EntityType Name="Account">
           <Key>
@@ -99,6 +115,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="scoreId" />
+          </Key>
+          <Property Name="scoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lostItemId" Type="Int32" Nullable="false" />
+          <Property Name="foundItemId" Type="Int32" Nullable="false" />
+          <Property Name="isVerified" Type="Int32" Nullable="false" />
+          <Property Name="scoreManufacturer" Type="Int32" Nullable="false" />
+          <Property Name="scoreModel" Type="Int32" Nullable="false" />
+          <Property Name="scoreDescription" Type="Int32" Nullable="false" />
+          <Property Name="lostUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foundUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -128,6 +158,21 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="userName" ColumnName="userName" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scores">
+            <EntityTypeMapping TypeName="Models.Score">
+              <MappingFragment StoreEntitySet="Score">
+                <ScalarProperty Name="foundUserName" ColumnName="foundUserName" />
+                <ScalarProperty Name="lostUserName" ColumnName="lostUserName" />
+                <ScalarProperty Name="scoreDescription" ColumnName="scoreDescription" />
+                <ScalarProperty Name="scoreModel" ColumnName="scoreModel" />
+                <ScalarProperty Name="scoreManufacturer" ColumnName="scoreManufacturer" />
+                <ScalarProperty Name="isVerified" ColumnName="isVerified" />
+                <ScalarProperty Name="foundItemId" ColumnName="foundItemId" />
+                <ScalarProperty Name="lostItemId" ColumnName="lostItemId" />
+                <ScalarProperty Name="scoreId" ColumnName="scoreId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

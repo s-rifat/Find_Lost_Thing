@@ -4,7 +4,9 @@
     ViewBag.Title = "My Lost & Found Items";
 }
 
-<h2>Index</h2>
+<h2>My History</h2>
+</br>
+
 @*
 <p>
     @Html.ActionLink("Post Information", "Create")
@@ -71,11 +73,12 @@
            @* <td>
                 @Html.DisplayFor(modelItem => item.userId)
             </td>*@
-            <td>
-             @*   @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |*@
-                @Html.ActionLink("Details", "Details", new { id = item.productId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.productId })
-            </td>
+        <td>
+            @*   @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |*@
+            @Html.ActionLink("Details", "Details", new { id = item.productId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.productId }) |
+            @Html.ActionLink("Result","Result", "Account",  new { id = item.productId },null)
+        </td>
         </tr>
     }
 
