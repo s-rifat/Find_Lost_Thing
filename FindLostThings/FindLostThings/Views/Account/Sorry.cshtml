@@ -1,17 +1,21 @@
-﻿@model FindLostThings.Models.Account
+﻿<!--sorry page-->
+@model FindLostThings.Models.Account
 
 @{
     ViewBag.Title = "Sorry";
 }
 
-<h2>Sorry!</h2>
+<div class="jumbotron">
 
-<div>
-    <h4>Could not find any matched contact! Try again later!</h4>
-  
+    <h1 class="display-3">Sorry - @User.Identity.Name</h1>
+
+    <p class="lead m-2">Please Don't Lose hope!</p>
+
 </div>
 
-<div>
-    @Html.ActionLink("Back", "Index","Product")
+
+<div class="container">
+    <p class="p-2"></p>
+    @Html.ActionLink("Back", "Index", "Product")
 </div>
 

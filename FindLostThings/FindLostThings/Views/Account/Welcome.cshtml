@@ -1,9 +1,8 @@
 ﻿<!-- Full Code Replace || Design Complete -->
-
+<!-- Design - 2 -->
 @model FindLostThings.Models.Account
-@{
-    ViewBag.Title = "Welcome";
-}
+@{ ViewBag.Title = "Welcome"; }
+
 
 <!-- vertical margin -->
 <hr class="my-5">
@@ -15,20 +14,84 @@
     <p class="lead">You are always welcome here to find what you have lost and claim what you have found.</p>
     <hr class="my-4">
 
-    <div class="list-group">
 
-        <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("View Profile", "Index", "Account",new { id = Model.userId }, null) </p>
-        <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("Report Lost Item", "Create", "Product", new { id = 1 }, null)  </p>
-        <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("Report Found Item", "Create", "Product", new { id = 2 }, null)</p>
-        <p class="list-group-item list-group-item-action active bg-active" style="text-align:center; font-size:100%;"> @Html.ActionLink("Show My History", "Index", "Product") </p>
 
-        <!-- vertical padding -->
-        <p class="p-2"></p>
 
-        <!-- progress bar -->
-        <div class="progress">
-            <div class="progress-bar bg-active" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="card-body grey lighten-5 rounded-bottom">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-6 p-1 bg-primary">
+
+                <div class="card grey lighten-2">
+                    <div class="card-body pb-0 d-flex justify-content-between">
+                        <i class="fas fa-user fa-3x pb-4"></i>
+                        @*<p class="" style="font-size : 25px">@Html.ActionLink("View Profile", "Index", "Account")</p>*@
+                        <p class="" style="font-size : 25px">@Html.ActionLink("View Profile", "Details", "Account", new { id = Model.userId }, null)</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-6 p-1 bg-primary">
+
+                <div class="card grey lighten-2">
+                    <div class="card-body pb-0 d-flex justify-content-between">
+                        <i class="fas fa-history fa-3x pb-4"></i>
+
+                        <p class="" style="font-size : 25px">@Html.ActionLink("Show My History", "Index", "Product")</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-6 p-1 bg-primary">
+
+                <div class="card grey lighten-2">
+                    <div class="card-body pb-0 d-flex justify-content-between">
+                        <i class="fas fa-search fa-3x pb-4"></i>
+
+                        <p class="" style="font-size : 25px">@Html.ActionLink("Report Lost Item", "Create", "Product", new { id = 1 }, null)</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-6 p-1 bg-primary">
+
+                <div class="card grey lighten-2">
+                    <div class="card-body pb-0 d-flex justify-content-between">
+                        <i class="fas fa-shopping-bag fa-3x pb-4"></i>
+
+                        <p class="" style="font-size : 25px">@Html.ActionLink("Report Found Item", "Create", "Product", new { id = 2 }, null)</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Grid column -->
+
         </div>
 
     </div>
+
 </div>
+
+
+
+
+

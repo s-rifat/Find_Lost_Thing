@@ -1,29 +1,59 @@
-﻿@model FindLostThings.Models.Account
+﻿<!--Result page-->
+
+@model FindLostThings.Models.Account
 
 @{
     ViewBag.Title = "Result";
 }
 
-<h2>Congratulations!</h2>
+<br />
 
-<div>
-    <h4>Found a contact!</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        
+<hr class="dotted border-top: 8px dotted #bbb bg-warning">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.phoneNumber)
-        </dt>
+<p class="p-2"></p>
 
-        <dd>
-            @Html.DisplayFor(model => model.phoneNumber)
-        </dd>
 
-    </dl>
+<div class="jumbotron">
+
+    <h1 class="display-3">Congratulations! - @User.Identity.Name</h1>
+
+    <p class="lead">You have found what was lost! Contact here.</p>
+    <hr class="my-4">
+
+    <!-- Grid row -->
+    <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-6 p-1 ">
+
+            <div class="card grey lighten-2">
+
+                <p class="text-center" style="font-size : 25px">@Html.DisplayNameFor(model => model.phoneNumber)</p>
+
+
+            </div>
+
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-6 p-1 bg-primary">
+
+            <div class="card grey lighten-2">
+
+                <p class="text-center" style="font-size : 25px">@Html.DisplayFor(model => model.phoneNumber)</p>
+
+
+            </div>
+
+        </div>
+        <!-- Grid column -->
+
+    </div>
 </div>
 
-<div>
+
+<div class="container">
+    <p class="p-2"></p>
     @Html.ActionLink("Back", "Index", "Product")
 </div>
 

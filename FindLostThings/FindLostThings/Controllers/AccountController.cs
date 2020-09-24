@@ -85,20 +85,21 @@ namespace FindLostThings.Controllers
             }
             return View(account);
         }
-        [Authorize]
+      /*  [Authorize]
         public ActionResult Index()
         {
             return View(db.Accounts.SqlQuery("SELECT * FROM   Account  where Account.userName = @userName",
             new SqlParameter("@userName", User.Identity.Name)).ToList());
             // return View(db.Accounts.ToList());
-        }
+        }*/
 
         [Authorize]
         public ActionResult Welcome()
-        {   
-            
+        {
 
-            return View();
+            return View(db.Accounts.SqlQuery("SELECT * FROM   Account  where Account.userName = @userName",
+            new SqlParameter("@userName", User.Identity.Name)).SingleOrDefault());
+
         }
 
         [Authorize]
@@ -121,6 +122,7 @@ namespace FindLostThings.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "userId,userName,password,phoneNumber")] Account account)
         {
             if (ModelState.IsValid)
@@ -131,8 +133,8 @@ namespace FindLostThings.Controllers
             }
             return View(account);
         }
-      
 
+        [Authorize]
         public ActionResult Result(int? id)
         {
             if (id == null)
@@ -180,7 +182,7 @@ namespace FindLostThings.Controllers
 
 
         }
-
+        [Authorize]
         public ActionResult Sorry()
         {
             return View();

@@ -11,6 +11,7 @@ namespace FindLostThings.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,13 +22,18 @@ namespace FindLostThings.Models
         {
             this.Products = new HashSet<Product>();
         }
-    
+        
         public int userId { get; set; }
+
+       
         public string userName { get; set; }
+
+       
         public string password { get; set; }
 
         [NotMapped] // Does not effect with my database
         [Compare("password")]
+        [DisplayName("Confirm Password")]
         public string confirmPassword { get; set; }
         public string phoneNumber { get; set; }
     
