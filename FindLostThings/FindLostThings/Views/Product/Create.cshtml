@@ -17,10 +17,6 @@
 
 
 
-
-
-
-
 <!--Section: Contact v.2-->
 <section class="mb-4">
 
@@ -80,7 +76,7 @@
                          new SelectListItem{Text = "Key",Value = "Key"},
                          new SelectListItem{Text = "Briefcase",Value = "Briefcase"},
                          new SelectListItem{Text = "Suitcase",Value = "Suitcase"},
-                     }, "Select lost item")
+                     }, "Select item")
                         @Html.ValidationMessageFor(model => model.productName, "", new { @class = "text-danger" })
                     </div>
                 </div>

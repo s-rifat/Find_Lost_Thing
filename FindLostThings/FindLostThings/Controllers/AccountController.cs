@@ -48,7 +48,7 @@ namespace FindLostThings.Controllers
         {
             if (ModelState.IsValid)
             {
-               
+
                 bool isExist = db.Accounts.Any(x => x.userName == account.userName);
                 if (!isExist)
                 {
@@ -74,7 +74,8 @@ namespace FindLostThings.Controllers
         [Authorize]
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            int id2 = db.Accounts.Single(x => x.userName == User.Identity.Name).userId;
+            if (id == null || id!=id2)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -85,13 +86,13 @@ namespace FindLostThings.Controllers
             }
             return View(account);
         }
-      /*  [Authorize]
-        public ActionResult Index()
-        {
-            return View(db.Accounts.SqlQuery("SELECT * FROM   Account  where Account.userName = @userName",
-            new SqlParameter("@userName", User.Identity.Name)).ToList());
-            // return View(db.Accounts.ToList());
-        }*/
+        /*  [Authorize]
+          public ActionResult Index()
+          {
+              return View(db.Accounts.SqlQuery("SELECT * FROM   Account  where Account.userName = @userName",
+              new SqlParameter("@userName", User.Identity.Name)).ToList());
+              // return View(db.Accounts.ToList());
+          }*/
 
         [Authorize]
         public ActionResult Welcome()
@@ -99,14 +100,14 @@ namespace FindLostThings.Controllers
 
             return View(db.Accounts.SqlQuery("SELECT * FROM   Account  where Account.userName = @userName",
             new SqlParameter("@userName", User.Identity.Name)).SingleOrDefault());
-
         }
 
         [Authorize]
 
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            int id2 = db.Accounts.Single(x => x.userName == User.Identity.Name).userId;
+            if (id == null|| id!=id2)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -125,6 +126,7 @@ namespace FindLostThings.Controllers
         [Authorize]
         public ActionResult Edit([Bind(Include = "userId,userName,password,phoneNumber")] Account account)
         {
+            
             if (ModelState.IsValid)
             {
                 db.Entry(account).State = EntityState.Modified;
@@ -136,8 +138,14 @@ namespace FindLostThings.Controllers
 
         [Authorize]
         public ActionResult Result(int? id)
-        {
-            if (id == null)
+        {   
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            int userId1 = db.Accounts.Single(x => x.userName == User.Identity.Name).userId;
+            int userId2 = db.Products.Single(x =>  x.productId==id).userId;
+            if ( userId1 !=userId2)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -146,52 +154,34 @@ namespace FindLostThings.Controllers
             {
                 return HttpNotFound();
             }
-
-
             var L = new List<Product>();
             if (String.Equals(product.itemType, Common.Common.LOST))
             {
-
                 L = db.Products.SqlQuery("SELECT * FROM Product where itemType = @itemType",
                 new SqlParameter("@itemType", Common.Common.FOUND)).ToList();
             }
             else
-
             {
-                 L = db.Products.SqlQuery("SELECT * FROM Product where itemType = @itemType",
-                new SqlParameter("@itemType", Common.Common.LOST)).ToList();
+                L = db.Products.SqlQuery("SELECT * FROM Product where itemType = @itemType",
+               new SqlParameter("@itemType", Common.Common.LOST)).ToList();
             }
-
-                foreach (var v in L)
+            foreach (var v in L)
+            {
+                if (v.postalCode == product.postalCode && String.Equals(v.productName, product.productName) && String.Equals(v.color, product.color) && String.Equals(v.manufacturer, product.manufacturer) && String.Equals(v.model, product.model))
                 {
-                    if ( v.postalCode == product.postalCode && String.Equals(v.productName,product.productName) && String.Equals(v.color, product.color) && String.Equals(v.manufacturer, product.manufacturer) && String.Equals(v.model, product.model))
-                    {
 
-                        Account account = db.Accounts.Find(v.userId);
-                        return View(account);
+                    Account account = db.Accounts.Find(v.userId);
+                    return View(account);
 
-                    }
-                  
                 }
 
-
-
-
-
+            }
             return RedirectToAction("Sorry", "Account");
-
-
         }
         [Authorize]
         public ActionResult Sorry()
         {
             return View();
         }
-
-        
-
-
-
-
     }
 }

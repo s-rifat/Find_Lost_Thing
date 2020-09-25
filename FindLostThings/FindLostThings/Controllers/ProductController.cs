@@ -15,10 +15,8 @@ namespace FindLostThings.Controllers
     public class ProductController : Controller
     {
         private ProductContext db = new ProductContext();
-        private ProductContext db2 = new ProductContext();
-        private ProductContext db3 = new ProductContext();
+   
       
-
         /* public int CommonChars(string left, string right)
        {
            return left.GroupBy(c => c)
@@ -73,27 +71,28 @@ namespace FindLostThings.Controllers
                 return cnt1;
             }
 
-
         }
-
 
 
         // GET: Product
 
         public ActionResult Index()
         {
-       
-
            
             return View(db.Products.SqlQuery("SELECT * FROM Product INNER JOIN Account ON Product.userId = Account.userId where Account.userName = @userName",
-            new SqlParameter("@userName", User.Identity.Name)).ToList());
-            
+            new SqlParameter("@userName", User.Identity.Name)).ToList());       
         }
 
         // GET: Product/Details/5
         public ActionResult Details(int? id)
-        {
-            if (id == null)
+        {   
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            int userId1 = db.Accounts.Single(x => x.userName == User.Identity.Name).userId;
+            int userId2 = db.Products.Single(x => x.productId == id).userId;
+            if ( userId1!=userId2)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -108,10 +107,13 @@ namespace FindLostThings.Controllers
         // GET: Product/Create
         public ActionResult Create(int id)
 
-        {   if (id == 1)
+        {  
+            if (id == 1)
                 Common.Common.bol = true;
             else if(id==2)
                 Common.Common.bol = false;
+            else
+                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             return View();
         }
 
@@ -164,9 +166,7 @@ namespace FindLostThings.Controllers
             return View(product);
         }
 
-       
-       
-
+     
         /*   // GET: Product/Edit/5
            public ActionResult Edit(int? id)
            {
@@ -202,7 +202,13 @@ namespace FindLostThings.Controllers
         // GET: Product/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            int userId1 = db.Accounts.Single(x => x.userName == User.Identity.Name).userId;
+            int userId2 = db.Products.Single(x => x.productId == id).userId;
+            if ( userId1 != userId2)//
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
